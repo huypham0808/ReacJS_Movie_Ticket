@@ -1,3 +1,3 @@
-# Shopping Shoe Project with ReactJS
+# Movie Ticket:  Project with ReactJS
 
 
