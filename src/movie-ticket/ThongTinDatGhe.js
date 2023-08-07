@@ -4,7 +4,7 @@ export default class ThongTinDatGhe extends Component {
   render() {
     return (
       <div className='thongTinDatGhe'>
-        <h3>Thong Tin Dat Ghe</h3>
+        <h3>Thông tin đặt ghế</h3>
       </div>
     )
   }
