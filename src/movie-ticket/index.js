@@ -4,9 +4,9 @@ import ThongTinDatGhe from './ThongTinDatGhe';
 export default class MovieTicket extends Component {
   render() {
     return (
-      <div>
-        <HangGhe/>
-        <ThongTinDatGhe/>
+      <div className='container d-flex justify-content-between mt-5'>
+        <HangGhe />
+        <ThongTinDatGhe />
       </div>
     )
   }
