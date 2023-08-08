@@ -21,8 +21,7 @@ class HangGhe extends Component {
     render() {
         return (
             <div className='movieSeatSelection text-center'>
-                <h3>Movie Seat Selection</h3>
-                <div className='screen'></div>
+                
                 {this.renderSothutuGhe()}
             </div>
         )

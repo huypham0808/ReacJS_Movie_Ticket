@@ -82,6 +82,14 @@ code {
   border-radius: 5px;
   width: 45px;
   height: 35px;
-
 }
+.gheChuaChon {
+  background: rgb(253, 253, 253);
+  border: 3px solid rgb(253, 253, 253);
+  color: #000;
 
+  cursor: pointer;
+  border-radius: 5px;
+  width: 45px;
+  height: 35px;
+}
