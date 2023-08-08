@@ -1,37 +1,41 @@
 import React, { Component } from 'react'
-import {connect} from 'react-redux';
 
-class HangGhe extends Component {
-    renderSothutuGhe = () => {
-        const {listSeat} = this.props;
-        return listSeat.map((Sothutu,index) => {
-            return (          
-                    <tr key={index} className="text-center">
-                        <td />
-                        <>{Sothutu.danhSachGhe.map((col) => {
-                            return (                             
-                                <td key={col.soGhe}> {col.soGhe}</td>
-                            )
-                        })}</>
-                    </tr>
-                
-            )
+export default class HangGhe extends Component {
+    renderGhe = () => {
+        return this.props.hangGhe.danhSachGhe.map((ghe, index) => {
+            let cssGheDaChon = '';
+            let disabled = false;
+            if (ghe.daDat) {
+                cssGheDaChon = 'gheDuocChon';
+                disabled = true;
+            }
+            return <button disabled={disabled} className={`ghe ${cssGheDaChon}`} key={index}>
+                {ghe.soGhe}
+            </button>
         })
     }
+    renderSoHang = () => {
+        return this.props.hangGhe.danhSachGhe.map((hang, index) => {
+            return <button className='rowNumber'>{hang.soGhe}</button>
+        })
+    };
+    renderHangGhe = () => {
+        if (this.props.soHangGhe === 0) {
+            return <div>
+                {this.props.hangGhe.hang} {this.renderSoHang()}
+            </div>
+        } else {
+            return <div>
+                {this.props.hangGhe.hang} {this.renderGhe()}
+            </div>
+        }
+    }
+   
     render() {
         return (
-            <div className='movieSeatSelection text-center'>
-                
-                {this.renderSothutuGhe()}
+            <div className='text-left mt-2 firstChar' style={{ fontSize: 30, marginLeft: 100 }}>
+                {this.renderHangGhe()}
             </div>
         )
     }
 };
-
-const mapStateToProps = (state) => {
-    return {
-        listSeat: state.seatReducer.listSeat,
-    }
-};
-
-export default connect (mapStateToProps) (HangGhe);
