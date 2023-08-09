@@ -21,9 +21,10 @@ export default class HangGhe extends Component {
     };
     renderHangGhe = () => {
         if (this.props.soHangGhe === 0) {
-            return <div>
+            return <div className='ml-1'>
                 {this.props.hangGhe.hang} {this.renderSoHang()}
             </div>
+            
         } else {
             return <div>
                 {this.props.hangGhe.hang} {this.renderGhe()}

@@ -19,7 +19,7 @@ export default class MovieTicket extends Component {
                      <div className='col-8'>
                         <h3 className='text-center text-light'>Movie Seat Selection</h3>
                         <div className='screen w-75 m-auto'></div>
-                        <div className='text-center text-light font-weight-bold mt-5'>
+                        <div className='text-center align-middle font-weight-bold mt-5'>
                            {this.renderHangGhe()}
                         </div>
                      </div>

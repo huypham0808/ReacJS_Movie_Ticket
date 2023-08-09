@@ -25,7 +25,8 @@ code {
   height: 35px;
   font-size: 16px;
   margin-left: 2%;
-  margin-bottom: 1%;
+  
+  margin-bottom: 1%; 
   border-radius: 5px;
 }
 
@@ -68,7 +69,7 @@ code {
 
   cursor: no-drop !important;
   border-radius: 5px;
-  width: 45px;
+  width: 42px;
   height: 35px;
 
 }
