@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 
-export default class HangGhe extends Component {
+class HangGhe extends Component {
     renderGhe = () => {
         return this.props.hangGhe.danhSachGhe.map((ghe, index) => {
             let cssGheDaChon = '';
@@ -9,7 +10,16 @@ export default class HangGhe extends Component {
                 cssGheDaChon = 'gheDuocChon';
                 disabled = true;
             }
-            return <button disabled={disabled} className={`ghe ${cssGheDaChon}`} key={index}>
+            //Xét trạng thái ghế đang đặt
+            let cssGheDangDat = '';
+            let indexGheDangDat = this.props.danhSachGheDangDat.findIndex(gheDangDat => gheDangDat.soGhe === ghe.soGhe);
+            if (indexGheDangDat !== -1) {
+                cssGheDangDat = 'gheDangChon';
+            }
+
+            return <button onClick={() => {
+                this.props.datGhe(ghe)
+            }} disabled={disabled} className={`ghe ${cssGheDaChon} ${cssGheDangDat}`} key={index}>
                 {ghe.soGhe}
             </button>
         })
@@ -24,14 +34,14 @@ export default class HangGhe extends Component {
             return <div className='ml-1'>
                 {this.props.hangGhe.hang} {this.renderSoHang()}
             </div>
-            
+
         } else {
             return <div>
                 {this.props.hangGhe.hang} {this.renderGhe()}
             </div>
         }
     }
-   
+
     render() {
         return (
             <div className='text-left mt-2 firstChar' style={{ fontSize: 30, marginLeft: 100 }}>
@@ -40,3 +50,20 @@ export default class HangGhe extends Component {
         )
     }
 };
+const mapStateToProps = state => {
+    return {
+        danhSachGheDangDat: state.DatveReducer.danhSachGheDangDat
+    }
+};
+const mapDispatchToProps = (dispatch) => {
+    return {
+        datGhe: (ghe) => {
+            dispatch({
+                type: "DAT_GHE",
+                ghe
+            })
+        }
+
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(HangGhe);
