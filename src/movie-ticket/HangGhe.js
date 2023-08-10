@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import { datGheAction } from './store/action/DatveAction';
 
 class HangGhe extends Component {
     renderGhe = () => {
@@ -58,12 +59,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
     return {
         datGhe: (ghe) => {
-            dispatch({
-                type: "DAT_GHE",
-                ghe
-            })
+            dispatch(datGheAction(ghe))
         }
-
     }
-}
+};
 export default connect(mapStateToProps, mapDispatchToProps)(HangGhe);

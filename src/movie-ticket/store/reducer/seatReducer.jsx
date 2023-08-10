@@ -1,4 +1,4 @@
-import Data from './danhSachGhe.json';
+import Data from '../danhSachGhe.json';
 
 const initialState = {
     listSeat: Data, // Khởi tạo danh sách ghế rỗng
